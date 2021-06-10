@@ -158,6 +158,8 @@ routes = [
     Mount('/static', app=StaticFiles(directory='static'), name='static'),
 ]
 
+print os.environ
+
 app = Starlette(debug=True, routes=routes)
 app.add_middleware(PrometheusMiddleware)
 app.add_route("/metrics", handle_metrics)
